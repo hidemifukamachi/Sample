@@ -1,25 +1,30 @@
 package sample
+import java.net.Authenticator.RequestorType;
 
+ 
 class HeloController {
-
+ 
     def index() {
-    	//render "<html><body><h1>Helo</h1><p>welcome to Grails!</p></body></html>"
-    //	[
-    //	'title':"Sample Page",
-    //    'msg':"This is sample page",
-    //    'date':Calendar.getInstance().getTime()
-    // 	]
-
-    def arr = [
+        def arr = [
             'title':"Sample Page",
-            'msg':"What's your name?",
+            'msg':"お名前は？",
             'value':''
         ];
-        if (params['input'] != null){
-            arr['value'] = params['input'];
-            arr['msg'] = 'Hello ' + params['input'] + '！'
-        }
         arr;
-    
+    }
+ 
+    def form() {
+        def arr = [
+            'title':"Sample Page",
+            'msg':"お名前は？",
+            'value':''
+        ];
+        if (request.method=='POST'){
+            if (params['input'] != null){
+                arr['value'] = params.input;
+                arr['msg'] = 'ハロー、' + params.input + 'さん！'
+            }
+        }
+        render(view:'index', model:arr)
     }
 }

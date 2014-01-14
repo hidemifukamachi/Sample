@@ -13,9 +13,9 @@
 <body>
     <h1>${title}</h1>
     <h2>${msg}</h2>
-    <form method="post" action="index">
-        <input type="text" name="input" value="${value}">
-        <input type="submit">
-    </form>
+    <g:form controller="helo">
+        <g:textField name="input" value="${value}"></g:textField>
+        <g:actionSubmit value="送信" action="form" />
+    </g:form>
 </body>
 </html>
