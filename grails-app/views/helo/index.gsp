@@ -13,6 +13,9 @@
 <body>
     <h1>${title}</h1>
     <h2>${msg}</h2>
-    <p>${date}</p>
+    <form method="post" action="index">
+        <input type="text" name="input" value="${value}">
+        <input type="submit">
+    </form>
 </body>
 </html>
